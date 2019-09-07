@@ -28,7 +28,12 @@ def draw():                                                 # Functie draw() voo
     elif gameStatus == 2:
         # Status 2 ==> PLAYING_ANIMATION
         screen.draw.text("Watch", (350, 20), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=60)
-        x_pos = 290 - ( score // 10 ) * 10
+        if score > 100:
+            x_pos = 270
+        elif score > 10:
+            x_pos = 280
+        else:
+            x_pos = 290
         screen.draw.text("Current Score = "+str(score), (x_pos, 525), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=40)
     elif gameStatus == 3:
         # Status 3 ==> PLAYER_ENTERS_CHOICES
@@ -37,7 +42,12 @@ def draw():                                                 # Functie draw() voo
     elif gameStatus == 4:
         # Status 4 ==> WRONG_CHOICE
         screen.draw.text("Wrong Choice!", (20, 20), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=60)
-        x_pos = 480 - ( score // 10 ) * 20        
+        if score > 100:
+            x_pos = 440
+        elif score > 10:
+            x_pos = 460
+        else:
+            x_pos = 480
         screen.draw.text("Final Score = "+str(score), (x_pos, 20), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=60)
         x_pos = enterFromLeft(230)
         screen.draw.text("Press Play for New Game", (x_pos, 350), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=40)
@@ -47,6 +57,12 @@ def draw():                                                 # Functie draw() voo
         # Status 5 ==> ALL_CHOICES_RIGHT
         screen.draw.text("Good Job! - Next Round Starting", (100, 20), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=60)
         x_pos = 290 - ( score // 10 ) * 10
+        if score > 100:
+            x_pos = 270
+        elif score > 10:
+            x_pos = 280
+        else:
+            x_pos = 290
         screen.draw.text("Current Score = "+str(score), (x_pos, 525), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=40)
 
 
