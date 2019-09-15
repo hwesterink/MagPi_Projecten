@@ -15,12 +15,7 @@ def draw():                                                 # De Pygame Zero dra
     elif gameStatus == 1:
         screen.draw.text("Click on a tile to move it or use the arrow keys", (95,540), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=40)
     elif gameStatus == 3:
-        if (moveCounter // 100) > 0:
-            x_pos = 90
-        elif (moveCounter // 10) > 0:
-            x_pos = 100
-        else:
-            x_pos = 110
+        x_pos = 120 - len(str(moveCounter)) * 10
         screen.draw.text("Success, it took "+str(moveCounter)+" moves to solve the puzzle", (x_pos,540), owidth=0.5, ocolor=(255,255,255), color=(255,128,0), fontsize=40)
 
 
@@ -60,7 +55,7 @@ def scrambleImage():
 #Test17            if moveDone == False:
 #Test17                print("Move "+str(scrambleCounter-1)+": "+TILEDIRS[SCRAMBLELIST[scrambleCounter-1]]+" is not possible.")
 #Test17                print("No tile could make this move.")
-#Final test            print(scrambleCounter, gameStatus)
+#FinalTest             print(scrambleCounter, gameStatus)
         if scrambleCounter >= SCRAMBLESTEPS: gameStatus = 1
     else:
         gameStatus = 1
@@ -153,7 +148,7 @@ SCRAMBLESTEPS = 75
 #                 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 # SCRAMBLELIST = [2,0,2,0,3,1,2,1,3,0,0,2,1,2,1,3,3,0,3,0,2,0,2,2,1,3,1,3,3,1,2]
 SCRAMBLELIST = [randint(0,3) for idx in range(SCRAMBLESTEPS)]
-print(SCRAMBLELIST)
+#FinalTest print(SCRAMBLELIST)
 scrambleCounter = 0
 moveDone = False
 moveCounter = 0
